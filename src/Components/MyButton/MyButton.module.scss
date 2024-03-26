@@ -1,0 +1,11 @@
+.myButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: transparent;
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15.6px;
+    cursor: pointer;
+}

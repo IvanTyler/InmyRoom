@@ -1,0 +1,33 @@
+.tapBar {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 58px;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: 1s;
+
+    &__item {
+        justify-self: center;
+        align-self: center;
+    }
+}
+
+.tapBar.hide {
+    animation: hideTapBar 1s;
+    transform: translateY(100%);
+    opacity: 0;
+    z-index: -1;
+}
+
+@keyframes hideTapBar {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

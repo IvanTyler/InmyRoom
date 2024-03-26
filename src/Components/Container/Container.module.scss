@@ -1,0 +1,13 @@
+.container {
+    position: relative;
+    max-width: 420px;
+    height: 677px;
+    margin: 0 auto;
+    border-radius: 2px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
