@@ -2,6 +2,7 @@
   "name": "inmyroom",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://github.com/IvanTyler/InmyRoom.github.io",
   "type": "module",
   "scripts": {
     "dev": "vite",
