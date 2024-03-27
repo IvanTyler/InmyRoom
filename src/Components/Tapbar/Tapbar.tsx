@@ -44,11 +44,11 @@ export const Tapbar: FC<iTapBarProps> = ({ scrollTop, scrollBarComplete, contain
 
         } else {
             navigator.clipboard.writeText(window.location.origin)
-            setIsCopyLink((prev: boolean) => prev = true)
+            setIsCopyLink(true)
         }
     }
 
-    if (isCopyLink) setTimeout(() => setIsCopyLink((prev: boolean) => prev = false), 3000)
+    if (isCopyLink) setTimeout(() => setIsCopyLink(false), 3000)
 
     const behaviorTapBar = () => {
         if (scrollTop > 200 && scrollBarComplete) return cx(style.tapBar)

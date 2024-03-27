@@ -22,27 +22,27 @@ export const Container: React.FC = () => {
             const scrollTop = container.current!.scrollTop
 
             setScrollTop(scrollTop)
-            setScrollBarActive((prev: boolean) => prev = true)
+            setScrollBarActive(true)
             
-            if (e.deltaY < 0) setScrollBarActive((prev: boolean) => prev = false)
+            if (e.deltaY < 0) setScrollBarActive(false)
         });
     }
 
     function scrollendTop() {
         container.current!.addEventListener('scrollend', () => {
-            setScrollBarActive((prev: boolean) => prev = false)
+            setScrollBarActive(false)
         });
     }
 
     if (scrollTop > 200 && !scrollBarActive) {
         setTimeout(() => {
-            setScrollBarComplete((prev: boolean) => prev = true)
+            setScrollBarComplete(true)
         }, 1000)
     }
 
     if (scrollTop > 200 && scrollBarActive) {
         setTimeout(() => {
-            setScrollBarComplete((prev: boolean) => prev = false)
+            setScrollBarComplete(false)
         }, 0)
     }
 

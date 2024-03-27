@@ -1,5 +1,4 @@
 import { FC } from "react";
-import style from './MyIcon.module.scss'
 
 interface IMyIconProps {
     img: string;
