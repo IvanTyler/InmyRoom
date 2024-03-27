@@ -13,6 +13,21 @@
         justify-self: center;
         align-self: center;
     }
+
+    &__message {
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% - 15px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 30px;
+        font-size: 13px;
+        border-radius: 8px;
+        box-shadow: 0 0 5px;
+        background-color: #fff;
+    }
 }
 
 .tapBar.hide {

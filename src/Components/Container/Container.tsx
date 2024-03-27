@@ -3,7 +3,6 @@ import style from './Container.module.scss'
 import { Header } from "../Header/Header";
 import { TextLorem } from "../TextLorem/TextLorem";
 import { Tapbar } from "../Tapbar/Tapbar";
-import bg from '../../assets/img/kitchen.png'
 
 export const Container: React.FC = () => {
 
@@ -11,7 +10,7 @@ export const Container: React.FC = () => {
     const [scrollBarActive, setScrollBarActive] = useState(false)
     const [scrollBarComplete, setScrollBarComplete] = useState(false)
 
-    const container = useRef<HTMLDivElement>(null)
+    const container = useRef<any>(null)
 
     useEffect(() => {
         currentScrollTop()
@@ -19,10 +18,13 @@ export const Container: React.FC = () => {
     }, [])
 
     function currentScrollTop() {
-        container.current!.addEventListener('scroll', () => {
+        container.current!.addEventListener('wheel', (e: any) => {
             const scrollTop = container.current!.scrollTop
-            setScrollBarActive((prev: boolean) => prev = true)
+
             setScrollTop(scrollTop)
+            setScrollBarActive((prev: boolean) => prev = true)
+            
+            if (e.deltaY < 0) setScrollBarActive((prev: boolean) => prev = false)
         });
     }
 
@@ -37,28 +39,20 @@ export const Container: React.FC = () => {
             setScrollBarComplete((prev: boolean) => prev = true)
         }, 1000)
     }
-
     if (scrollTop > 200 && scrollBarActive) {
         setTimeout(() => {
             setScrollBarComplete((prev: boolean) => prev = false)
         }, 0)
     }
 
-
     return (
         <div ref={container} className={style.container}>
             <Header />
-            <img src={bg} alt='' style={{
-                marginTop: -78,
-                position: 'relative',
-                zIndex: -1,
-                width: '100%',
-                height: '100%',
-            }} />
             <TextLorem />
             <Tapbar
                 scrollTop={scrollTop}
                 scrollBarComplete={scrollBarComplete}
+                container={container}
             />
             <p style={{
                 height: '58px',
