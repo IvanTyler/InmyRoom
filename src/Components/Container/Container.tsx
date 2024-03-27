@@ -39,6 +39,7 @@ export const Container: React.FC = () => {
             setScrollBarComplete((prev: boolean) => prev = true)
         }, 1000)
     }
+
     if (scrollTop > 200 && scrollBarActive) {
         setTimeout(() => {
             setScrollBarComplete((prev: boolean) => prev = false)
@@ -48,6 +49,7 @@ export const Container: React.FC = () => {
     return (
         <div ref={container} className={style.container}>
             <Header />
+            
             <TextLorem />
             <Tapbar
                 scrollTop={scrollTop}
